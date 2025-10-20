@@ -64,7 +64,11 @@ function removeEvent(i) {
 }
 
 // XSS対策の最小関数
-function escapeHTML(s){ return s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',\"'\":'&#39;'}[c])); }
+function escapeHTML(s) {
+  return s.replace(/[&<>"']/g, c => (
+    ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]
+  ));
+}
 
 // 初期化
 document.addEventListener('DOMContentLoaded', () => {
